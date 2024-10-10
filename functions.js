@@ -49,6 +49,10 @@ waveToStefano()
 // DEFINIZIONE DI FUNZIONE
 const waveToStudent = function (studentName) {
   //   console.log(studentName)
+  // studentName è 'Stefano' alla prima invocazione
+  // studentName è 'Giulia' alla seconda invocazione
+  // studentName è 'Anna' alla terza invocazione
+  // studentName è 'Gabriele' alla quarta invocazione
   console.log('CIAO, ' + studentName)
 }
 
@@ -75,3 +79,70 @@ const calcGenericArea = function (lato) {
 calcGenericArea(5)
 calcGenericArea(9)
 calcGenericArea(10)
+
+const showMessage = function (message, type) {
+  // VERSIONE SHORT
+  //   let intro = type === 'info' ? 'INFORMAZIONE' : 'ERRORE'
+  // VERSIONE SHORT PRO (con elseif)
+  //   let intro =
+  //     type === 'info'
+  //       ? 'INFORMAZIONE'
+  //       : type === 'success' // elseif
+  //       ? 'SUCCESSO'
+  //       : 'ERRORE' // else
+
+  let intro = '' // "INFORMAZIONE" oppure "ERRORE"
+
+  if (type === 'info') {
+    intro = 'INFORMAZIONE' // cambio da stringa vuota a 'INFORMAZIONE'
+  } else {
+    // vuol dire che type è "error"
+    intro = 'ERRORE'
+  }
+
+  console.log(intro + ' - ' + message)
+}
+
+showMessage('Login effettuato con successo', 'info')
+showMessage('Problema nel login', 'error')
+showMessage('Registrazione effettuata', 'info')
+
+const sumTwoNumbers = function (num1, num2) {
+  console.log('La somma dei due numeri è ' + (num1 + num2))
+}
+
+sumTwoNumbers(30, 6)
+sumTwoNumbers(4, 69)
+sumTwoNumbers(10, 100)
+sumTwoNumbers(8) // ?? NaN
+
+// BOSS FINALE
+// le funzioni possono avere un VALORE DI RITORNO (return value)
+// una funzione può, opzionalmente, avere un valore di ritorno
+// "return"
+
+const torna5 = function () {
+  // questa funzione non riceve parametri
+  // questa funzione però ritorna SEMPRE il numero 5
+  return 5
+  // una volta trovato un return in una funzione, la funzione TERMINA
+  // console.log('ciao')
+  // non vedremo mai questo console.log
+}
+
+console.log(torna5() + 10)
+
+// questa invocazione di torna5() VALE 5
+
+// es. un po' più realistico
+
+const createADiceNumber = function () {
+  const randomNumber = Math.random() // 0.234, 0.945, etc.
+  const diceNumberFloat = randomNumber * 6 // 0.0001, 5.9999
+  const integerResult = Math.ceil(diceNumberFloat) // 1, 2, 3, 4, 5, 6
+
+  return integerResult
+}
+
+console.log(createADiceNumber())
+// l'invocazione di questa funzione equivale al suo valore di ritorno
