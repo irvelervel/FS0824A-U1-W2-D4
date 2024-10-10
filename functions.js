@@ -141,8 +141,102 @@ const createADiceNumber = function () {
   const diceNumberFloat = randomNumber * 6 // 0.0001, 5.9999
   const integerResult = Math.ceil(diceNumberFloat) // 1, 2, 3, 4, 5, 6
 
-  return integerResult
+  return integerResult // la funzione FINISCE e RITORNA il valore trovato
 }
 
-console.log(createADiceNumber())
+const diceNumber = createADiceNumber()
 // l'invocazione di questa funzione equivale al suo valore di ritorno
+// console.log('DICENUMBER', diceNumber)
+
+// funzione che accetta come parametro un numero, e se è sopra 100 torna un messaggio d'errore
+
+const above100 = function (num) {
+  if (num > 100) {
+    // troppo grande
+    return 'Il numero è troppo grande'
+  } else {
+    // faremo cose
+    return 'Numero accettato!'
+  }
+}
+
+console.log("L'utente Stefano ha ricevuto questo messaggio:" + above100(50))
+console.log("L'utente Stefano ha ricevuto questo messaggio:" + above100(101))
+
+//
+
+const movesCharacter = function (numberOfSteps) {
+  let position = 0
+  position = position + numberOfSteps
+  return position
+}
+
+movesCharacter(createADiceNumber())
+
+// scriviamo una funzione che riceve un numero e torna true se il numero è 45 o 98
+
+const checkNumber = function (number) {
+  if (number === 45 || number === 98) {
+    return true
+  } else {
+    return false
+  }
+}
+
+console.log(checkNumber(60)) // ? false
+console.log(checkNumber(45)) // ? true
+
+// scrivi una funzione che riceva una stringa, e torni 'Bene!' se la stringa sia al massimo
+// di 15 caratteri, 'Male!' in caso contrario.
+
+const checkString = function (str) {
+  if (str.length <= 15) {
+    return 'Bene!'
+  } else {
+    return 'Male!'
+  }
+}
+
+console.log("L'esito del controllo è: " + checkString('Buongiorno')) // 'Bene!' o 'Male!'
+// il return è il RISULTATO delle operazioni nella funzione!
+
+// scrivi una funzione che estragga da una stringa i caratteri alla 3°, 4° e 5° posizione
+
+const extractMiniString = function (str) {
+  return str.slice(2, 5) // 3 caratteri
+  // slice richiede due parametri: l'indice di partenza e l'indice finale
+}
+
+const result = extractMiniString('Ciao, Stefano')
+// result dovrebbe essere 'ao,'
+console.log(result)
+
+const combineCharacters = function (str) {
+  // 2° 6° 9°
+  return str.charAt(1) + str.charAt(5) + str.charAt(8)
+}
+
+console.log(combineCharacters('Oggi sto imparando le funzioni')) // "gs "
+
+// funzione con un FOR all'interno
+const students = [
+  'francois', // 0
+  'emanuele', // 1
+  'giovanni', // 2
+  'anna', // 3
+  'patricia', // 4
+  'giulia', // 5
+]
+
+const extract3RandomStudents = function () {
+  for (let i = 0; i < 3; i++) {
+    // per 3 volte
+    // estraiamo un indice valido dell'array students
+    // tiro il dado! ma il dado estrae 1-6, a noi serve da 0-5
+    const diceResult = createADiceNumber() // numero da 1-6
+    const index = diceResult - 1
+    console.log(students[index])
+  }
+}
+
+extract3RandomStudents()
